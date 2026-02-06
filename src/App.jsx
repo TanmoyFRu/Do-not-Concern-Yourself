@@ -49,6 +49,15 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if (showSuccess) {
+      document.body.classList.remove('no-scroll')
+    } else {
+      document.body.classList.add('no-scroll')
+    }
+    return () => document.body.classList.remove('no-scroll')
+  }, [showSuccess])
+
+  useEffect(() => {
     const interval = setInterval(() => {
       const heart = document.createElement('div')
       heart.className = 'floating-heart'
@@ -118,7 +127,7 @@ function App() {
 
   if (showSuccess) {
     return (
-      <div className="app">
+      <div className="app scrollable">
         <div className="hearts-container" id="hearts"></div>
         <div className="container">
           <div className="card success-card">
@@ -215,6 +224,7 @@ function App() {
               className="btn no-btn"
               style={getNoButtonStyle()}
               onMouseEnter={moveButton}
+              onClick={moveButton}
             >
               {attempts >= 9 ? "OK FINE YES!" : btnTexts[Math.min(attempts, btnTexts.length - 1)]}
             </button>

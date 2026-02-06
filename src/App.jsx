@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import './App.css'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [yesBtnScale, setYesBtnScale] = useState(1)
   const [signatureName, setSignatureName] = useState('')
   const [isSigned, setIsSigned] = useState(false)
+  const [isSending, setIsSending] = useState(false)
   const audioRef = useRef(null)
   const cuteAudioRef = useRef(null)
 
@@ -177,10 +179,29 @@ function App() {
                   />
                   <button
                     className="btn sign-btn"
-                    onClick={() => signatureName.trim() && setIsSigned(true)}
-                    disabled={!signatureName.trim()}
+                    onClick={() => {
+                      if (!signatureName.trim()) return
+                      setIsSending(true)
+                      emailjs.send(
+                        'service_ex430dd',
+                        'template_ivyvwoh',
+                        {
+                          name: signatureName,
+                          date: new Date().toLocaleString(),
+                          type: forcedYes ? 'Forced Yes' : 'Direct Yes'
+                        },
+                        'JMv5XTc7dVZpMvged'
+                      ).then(() => {
+                        setIsSigned(true)
+                        setIsSending(false)
+                      }).catch(() => {
+                        setIsSigned(true)
+                        setIsSending(false)
+                      })
+                    }}
+                    disabled={!signatureName.trim() || isSending}
                   >
-                    Sign Contract
+                    {isSending ? 'Signing...' : 'Sign Contract'}
                   </button>
                 </div>
               ) : (

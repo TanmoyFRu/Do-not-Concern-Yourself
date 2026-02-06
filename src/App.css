@@ -340,6 +340,87 @@ body.no-scroll {
   text-align: right;
 }
 
+.sign-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #e91e63;
+  text-align: center;
+}
+
+.sign-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.sign-input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  font-family: 'Pacifico', cursive;
+  border: 2px solid #e91e63;
+  border-radius: 10px;
+  text-align: center;
+  color: #e91e63;
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+.sign-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+}
+
+.sign-input::placeholder {
+  color: #ccc;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sign-btn {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.sign-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.sign-btn:disabled {
+  background: linear-gradient(135deg, #bbb, #999);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.signed-confirmation {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border-radius: 15px;
+  text-align: center;
+  animation: popIn 0.5s ease;
+}
+
+.signed-text {
+  font-size: 1.2rem;
+  color: #2e7d32;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.signed-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8rem;
+  color: #e91e63;
+  margin-bottom: 5px;
+}
+
+.signed-date {
+  font-size: 0.85rem;
+  color: #666;
+}
+
 /* Hacking Override Effect */
 .hacking {
   background: black !important;

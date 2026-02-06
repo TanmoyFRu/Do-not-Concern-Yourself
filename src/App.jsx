@@ -9,6 +9,8 @@ function App() {
   const [isHacking, setIsHacking] = useState(false)
   const [noPosition, setNoPosition] = useState({ x: null, y: null })
   const [yesBtnScale, setYesBtnScale] = useState(1)
+  const [signatureName, setSignatureName] = useState('')
+  const [isSigned, setIsSigned] = useState(false)
   const audioRef = useRef(null)
   const cuteAudioRef = useRef(null)
 
@@ -162,7 +164,32 @@ function App() {
                 <li>✅ No escaping the {forcedYes ? "Rickroll Pranks." : "Romantic vibes."}</li>
                 <li>✅ Priority reply to texts (no ghosting).</li>
               </ul>
-              <p className="signature">Rishta Approved: Your Tanmoy ❤️</p>
+
+              {!isSigned ? (
+                <div className="sign-section">
+                  <p className="sign-label">Sign here to accept:</p>
+                  <input
+                    type="text"
+                    className="sign-input"
+                    placeholder="Write your name..."
+                    value={signatureName}
+                    onChange={(e) => setSignatureName(e.target.value)}
+                  />
+                  <button
+                    className="btn sign-btn"
+                    onClick={() => signatureName.trim() && setIsSigned(true)}
+                    disabled={!signatureName.trim()}
+                  >
+                    Sign Contract
+                  </button>
+                </div>
+              ) : (
+                <div className="signed-confirmation">
+                  <p className="signed-text">Contract Signed!</p>
+                  <p className="signed-name">{signatureName}</p>
+                  <p className="signed-date">{new Date().toLocaleDateString()}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

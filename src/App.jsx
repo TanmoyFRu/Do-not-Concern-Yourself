@@ -159,12 +159,12 @@ function App() {
               }
             </p>
             <div className="contract">
-              <h3>📜 OFFICIAL RISHTA CONTRACT</h3>
+              <h3>OFFICIAL RISHTA CONTRACT</h3>
               <ul>
-                <li>✅ {forcedYes ? "Sarkaari duty: Unlimited Momo supply." : "Special treat: Unlimited Momo & Chai."}</li>
-                <li>✅ Mandatory daily hugs (10 mins min).</li>
-                <li>✅ No escaping the {forcedYes ? "Rickroll Pranks." : "Romantic vibes."}</li>
-                <li>✅ Priority reply to texts (no ghosting).</li>
+                <li>✅ Per month 2 coffee data</li>
+                <li>✅ Unlimited supply of flowers</li>
+                <li>✅ No khich khich from my side</li>
+                <li>✅ Unlimited bike rides with me obviously</li>
               </ul>
 
               {!isSigned ? (
